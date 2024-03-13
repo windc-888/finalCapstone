@@ -11,10 +11,16 @@ warnings.filterwarnings("ignore",
                         message=r".*\[W007\].*",
                         category=UserWarning)
 
+import os
+
+# Creating file path variable
+absolute_path = os.path.dirname("amazon_product_reviews.csv")
+relative_path = "T21 - Capstone Project - NLP Applications/amazon_product_reviews.csv"
+file_path = os.path.join(absolute_path, relative_path)
 
 # Importing data into df, selecting only the reviews.text column 
 # and dropping any NAs.
-df = pd.read_csv(r'C:\Users\windh\Documents\Data Science Bootcamp\T21 - Capstone Project - NLP Applications\amazon_product_reviews.csv',
+df = pd.read_csv(file_path,
                  dtype={1: str, 10: str})
 df = df['reviews.text']
 df = df.dropna()
